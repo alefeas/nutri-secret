@@ -1,0 +1,28 @@
+body {
+    margin: 0 auto;
+    width: 1000px;
+    text-align: center;
+}
+* {
+    scrollbar-gutter: stable;
+}
+.item {
+    padding: 10px;
+    border: 1px solid aqua;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    .foodColumn {
+        width: 20%;
+    }
+    .column {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;        
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
