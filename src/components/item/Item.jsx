@@ -1,37 +1,37 @@
-import React from 'react'
+import { useContext } from 'react'
+import { DietContext } from '../../context/DietContext.jsx'
 
-export const Item = ({name, id, kcal, protein, carbs, fat, fiber, serving}) => {
+export const Item = ({name, id, kcal, protein, carbs, fat, fiber}) => {
+    
+    const dietCtx = useContext(DietContext)
+
     return (
-        <div className='item' key={id}>
-            <div className='column foodColumn'>
-                <span>Food</span>
-                <span>{name}</span>
-            </div>
-            <div className='column'>
-                <span>Quantity</span>
+        <div onClick={() => dietCtx.addItem(name, id, kcal, protein, carbs, fat)} className='item' key={id}>
+            <div className='column quantityColumn'>
                 <span>100</span>
             </div>
-            <div className='column'>
-                <span>Unit</span>
+            <div className='column unitColumn'>
                 <span>g</span>
             </div>
-            <div className='column'>
-                <span>Nutrients</span>
+            <div className='column foodColumn'>
+                <span>{name}</span>
+            </div>
+            <div className='column nutrientsColumn'>
                 <div>
                     { kcal ?
-                    <span>Energy {kcal} kcal</span>
+                    <span>Energy: <span style={{fontWeight:'700'}}>{kcal} kcal</span></span>
                     : <></>}
                     { protein ?
-                    <span>Protein {protein} g</span>
+                    <span>Protein: <span style={{fontWeight:'700'}}>{protein} g</span></span>
                     : <></>}
                     { carbs ?
-                    <span>Carb {carbs} g</span>
+                    <span>Carb: <span style={{fontWeight:'700'}}>{carbs} g</span></span>
                     : <></>}
                     { fat ?
-                    <span>Fat {fat} g</span>
+                    <span>Fat: <span style={{fontWeight:'700'}}>{fat} g</span></span>
                     : <></>}
                     { fiber ?
-                    <span>Fiber {fiber} g</span>
+                    <span>Fiber: <span style={{fontWeight:'700'}}>{fiber} g</span></span>
                     : <></>}
                 </div>
             </div>
