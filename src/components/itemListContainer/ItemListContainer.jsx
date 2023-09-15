@@ -73,15 +73,22 @@ export const ItemListContainer = () => {
                 <button className='buttonSearch' onClick={handleClick}>Search</button>
             </div>
             {
-                !loading && data ?
+                !loading ?
                 <div>
-                    <div className='titlesContainer'>
-                        <span className='quantityTitle'>Quantity</span>
-                        <span className='unitTitle'>Unit</span>
-                        <span className='foodTitle'>Food</span>
-                        <span className='nutrientsTitle'>Nutrients</span>
-                    </div>
-                    <ItemList data={data} loadingMore={loadingMore} nextPage={nextPage} seeMore={seeMore} loading={loading}/>
+                    
+                    {
+                        data?.length > 0 ?
+                        <>
+                            <div className='titlesContainer'>
+                                <span className='quantityTitle'>Quantity</span>
+                                <span className='unitTitle'>Unit</span>
+                                <span className='foodTitle'>Food</span>
+                                <span className='nutrientsTitle'>Nutrients</span>
+                            </div>
+                            <ItemList data={data} loadingMore={loadingMore} nextPage={nextPage} seeMore={seeMore} loading={loading}/>
+                        </>
+                        : <span>We haven't found that food</span>    
+                    }
                 </div>  
                 : 
                 <Loader/>

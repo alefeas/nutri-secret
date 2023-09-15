@@ -1,12 +1,15 @@
-import { useContext } from 'react'
-import { DietContext } from '../../context/DietContext.jsx'
+import { useState } from 'react'
+import ItemModal from '../itemModal/ItemModal.jsx'
 
 export const Item = ({name, id, kcal, protein, carbs, fat, fiber}) => {
-    
-    const dietCtx = useContext(DietContext)
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     return (
-        <div onClick={() => dietCtx.addItem(name, id, kcal, protein, carbs, fat)} className='item' key={id}>
+        <>
+        <ItemModal handleClose={handleClose} open={open} kcal={kcal} protein={protein} carbs={carbs} fat={fat} name={name} id={id}/>
+        <div onClick={handleOpen} className='item' key={id}>
             <div className='column quantityColumn'>
                 <span>100</span>
             </div>
@@ -36,5 +39,6 @@ export const Item = ({name, id, kcal, protein, carbs, fat, fiber}) => {
                 </div>
             </div>
         </div>
+        </>
     )
 }

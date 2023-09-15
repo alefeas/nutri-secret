@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 
 body {
-    background: url('https://pixabay.com/get/g4c668a9e57d569d4cce6b16e8ce06b1af80e6c3076bd0b5b2eecd7005d4f638ac4ddd7b4c87a88ddf7c995d912fb118f4a3477f9618c2a940691703c195b402a_1920.jpg');
+    background: url('https://images.unsplash.com/photo-1464427219274-ab9450eba98b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1946&q=80');
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0 auto;
@@ -9,10 +9,13 @@ body {
     text-align: center;
 }
 * {
-    scrollbar-gutter: stable;
     font-family: 'Work Sans', sans-serif;
 }
 ::-webkit-scrollbar {
+}
+.formControl {
+    outline: none !important;
+    color: #0002 !important;
 }
 .searchContainer {
     position: relative;
@@ -177,3 +180,5 @@ body {
         background-position: -2px -4px , 2px 2px , 1px 1px;
     }
 }  
+
+//MODAL 

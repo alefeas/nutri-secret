@@ -1,9 +1,12 @@
-import { ItemListContainer } from "../itemListContainer/ItemListContainer.jsx"
-import { DietContext } from "../../context/DietContext.jsx"
-import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { MealList } from "../mealList/MealList.jsx"
+import { useContext } from "react"
+import { DietContext } from "../../context/DietContext.jsx"
+
 export const Home = () => {
     const dietCtx = useContext(DietContext)
+    console.log(dietCtx);
+
     return (
         <div>
             <Link to='search'>asd</Link>
@@ -11,23 +14,19 @@ export const Home = () => {
             <div>
                 <div>
                     <span>Breakfast</span>
-                    {
-                        dietCtx.diet?.map(item => 
-                            <div>{item.name}</div>
-                        )
-                    }
+                    <MealList mealType={dietCtx.breakfast}/>
                 </div>
                 <div>
-                    <span>Lunch</span>
-                    <div></div>
+                    <span>Launch</span>
+                    <MealList mealType={dietCtx.launch}/>
                 </div>
                 <div>
                     <span>Dinner</span>
-                    <div></div>
+                    <MealList mealType={dietCtx.dinner}/>
                 </div>
                 <div>
                     <span>Snacks | Others</span>
-                    <div></div>
+                    <MealList mealType={dietCtx.snacks}/>
                 </div>
             </div>
         </div>
