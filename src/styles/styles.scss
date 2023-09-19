@@ -4,8 +4,8 @@ body {
     background: url('https://images.unsplash.com/photo-1464427219274-ab9450eba98b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1946&q=80');
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 100vh;
     margin: 0 auto;
-    width: 1000px;
     text-align: center;
 }
 * {
@@ -114,6 +114,88 @@ body {
     padding: 10px;
     background-color: #bcf0d1;
     width: 200px;
+}
+.dietDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    width: 400px;
+    background-color: rgba(211, 211, 211, 0.713);
+}
+.mealTypeList {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid white;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition:.5s;
+    overflow: hidden;
+    height: 65px;
+}
+#mealTypeListShort {
+    height: 30px;
+    justify-content: center;
+}
+.deleteIcon {
+    cursor: pointer;
+    width: 40px;
+    height: 30px;
+}
+.nutrientsDietContainer {
+    margin-bottom: 10px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    gap: 20px;
+}
+.expandContainer {
+    margin: 10px auto;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    width: 320px;
+    text-align: left;
+}
+.itemListContainer {
+    margin: 0 auto;
+    width: 1000px;
+}
+.nutrientsDiet {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+.mealTypeTitle {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 320px;
+    align-items: center;
+}
+.arrowMealTypeExpand {
+    height: 40px;
+}
+.itemDiet {
+    padding-top: 10px;
+    border-top: 1px solid white;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.titleContainerItemDiet {
+    display: flex;
+    justify-content: space-between;
+}
+.mealTypeExpandList {
+    transition: .5s;
+    height: auto;
 }
 
 //LOADER

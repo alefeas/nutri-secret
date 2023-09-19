@@ -100,7 +100,7 @@ export default function ItemModal({open, handleClose, name, id, kcal, protein, c
                     </div>
                 </div>
                 <div>
-                    <span>Energy: { kcalPerGram ? kcalPerGram.toFixed(1) : 0} kcal </span>
+                    <span>Calories: { kcalPerGram ? kcalPerGram.toFixed(1) : 0} </span>
                     <span>Protein: { proteinPerGram ? proteinPerGram.toFixed(1) : 0} g </span>
                     <span>Carbs: { carbsPerGram ? carbsPerGram.toFixed(1) : 0} g </span>
                     <span>Fat: { fatPerGram ? fatPerGram.toFixed(1) : 0} g </span>

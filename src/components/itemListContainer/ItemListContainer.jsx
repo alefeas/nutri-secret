@@ -66,7 +66,7 @@ export const ItemListContainer = () => {
     }
 
     return (
-        <>
+        <div className='itemListContainer'>
         <Link to='/'>asd</Link>
             <div className='searchContainer'>
                 <input placeholder='Search food...' className='inputSearch' onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => setInputValue(e.target.value)} type="text" />
@@ -93,6 +93,6 @@ export const ItemListContainer = () => {
                 : 
                 <Loader/>
             }
-        </>
+        </div>
     )
 }

@@ -22,7 +22,7 @@ export const Item = ({name, id, kcal, protein, carbs, fat, fiber}) => {
             <div className='column nutrientsColumn'>
                 <div>
                     { kcal ?
-                    <span>Energy: <span style={{fontWeight:'700'}}>{kcal} kcal</span></span>
+                    <span>Calories: <span style={{fontWeight:'700'}}>{kcal} </span></span>
                     : <></>}
                     { protein ?
                     <span>Protein: <span style={{fontWeight:'700'}}>{protein} g</span></span>
