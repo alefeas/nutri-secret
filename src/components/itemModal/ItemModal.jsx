@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import { DietContext } from '../../context/DietContext.jsx'
-import SelectMealType from '../selectMealType/SelectMealType.jsx';
 
 const style = {
     display: 'flex',
@@ -16,9 +15,9 @@ const style = {
     transform: 'translate(-50%, -50%)',
     bgcolor: 'background.paper',
     border: '2px solid #000',
-    width: 500,
+    width: 280,
     boxShadow: 24,
-    p: 4
+    p: 2
 }
 
 export default function ItemModal({open, handleClose, name, id, kcal, protein, carbs, fat}) {
@@ -30,8 +29,8 @@ export default function ItemModal({open, handleClose, name, id, kcal, protein, c
     const handleChange = (gram) => {
         if (gram < 1) {     
             setGrams()
-        } else if (gram > 9999) {
-            setGrams(9999)
+        } else if (gram > 3000) {
+            setGrams(3000)
         } else {
             setGrams(gram)
         }
@@ -57,10 +56,12 @@ export default function ItemModal({open, handleClose, name, id, kcal, protein, c
     }
 
     const ButtonAdd = () => {
-        if (grams > 0 || grams < 10000 && !adding) {
+        if (dietCtx.totalCalories() + kcalPerGram >= 10000) {
+            return <button style={{opacity:'0.75'}}>Add</button>
+        } else if (grams > 0 || grams <= 3000 && !adding) {
             return <button onClick={add}>Add</button>
         } else {
-            return <button style={{opacity:'0.5'}}>Add</button>
+            return <button style={{opacity:'0.75'}}>Add</button>
         }
     }
 
@@ -78,8 +79,8 @@ export default function ItemModal({open, handleClose, name, id, kcal, protein, c
             }}
         >
             <Fade in={open}>
-            <Box sx={style}>
-                <div>
+            <Box className='modal' sx={style}>
+                <div className='horizontalContainer'>
                     <div className='smallModalContainer'>
                         <span>Meal type</span>
                         <select value={select} onChange={(e) => setSelect(e.target.value)} name="" id="">
@@ -91,7 +92,7 @@ export default function ItemModal({open, handleClose, name, id, kcal, protein, c
                     </div>
                     <div className='smallModalContainer'>
                         <span>Grams</span>
-                        <input value={grams} min={1} max={9999} onChange={(e) => handleChange(+e.target.value)} maxLength={5} type="number" inputMode='numeric'/>
+                        <input value={grams} min={1} max={3000} onChange={(e) => handleChange(+e.target.value)} maxLength={5} type="number" inputMode='numeric'/>
                         {
                             grams <= 0 ? 
                             <span>Only positive numbers</span>
@@ -99,17 +100,36 @@ export default function ItemModal({open, handleClose, name, id, kcal, protein, c
                         }
                     </div>
                 </div>
-                <div>
-                    <span>Calories: { kcalPerGram ? kcalPerGram.toFixed(1) : 0} </span>
-                    <span>Protein: { proteinPerGram ? proteinPerGram.toFixed(1) : 0} g </span>
-                    <span>Carbs: { carbsPerGram ? carbsPerGram.toFixed(1) : 0} g </span>
-                    <span>Fat: { fatPerGram ? fatPerGram.toFixed(1) : 0} g </span>
+                <div className='horizontalContainer'>
+                    <div className='smallModalContainer'>
+                        <span>Cals</span>
+                        <span>{ kcalPerGram ? kcalPerGram.toFixed(1) : 0} </span>
+                    </div>
+                    <div className='smallModalContainer'>
+                        <span>Prot</span>
+                        <span>{ proteinPerGram ? proteinPerGram.toFixed(1) : 0} g </span>
+                    </div>
+                    <div className='smallModalContainer'>
+                        <span>Carbs</span>
+                        <span>{ carbsPerGram ? carbsPerGram.toFixed(1) : 0} g </span>
+                    </div>
+                    <div className='smallModalContainer'>
+                        <span>Fat</span>
+                        <span>{ fatPerGram ? fatPerGram.toFixed(1) : 0} g </span>
+                    </div>
                 </div>
-                <button onClick={handleClose}>cancel</button>
+                <div className='buttonContainer'>
+                    <button className='cancelButton' onClick={handleClose}>Cancel</button>
+                    {
+                        !adding ?
+                        <ButtonAdd/>
+                        : <button  style={{opacity:'0.75'}}>Adding...</button>    
+                    }
+                </div>
                 {
-                    !adding ?
-                    <ButtonAdd/>
-                    : <button>Adding...</button>    
+                    dietCtx.totalCalories() + kcalPerGram >= 10000 ?
+                    <span className='excessSpan'>The total sum of calories cannot exceed 10000</span>
+                    : <></>
                 }
             </Box>
             </Fade>

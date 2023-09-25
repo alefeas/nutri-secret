@@ -22,19 +22,19 @@ export const Item = ({name, id, kcal, protein, carbs, fat, fiber}) => {
             <div className='column nutrientsColumn'>
                 <div>
                     { kcal ?
-                    <span>Calories: <span style={{fontWeight:'700'}}>{kcal} </span></span>
+                    <span>Kcal: <span style={{fontWeight:'800'}}>{kcal} </span></span>
                     : <></>}
                     { protein ?
-                    <span>Protein: <span style={{fontWeight:'700'}}>{protein} g</span></span>
+                    <span>Prot: <span style={{fontWeight:'800'}}>{protein} g</span></span>
                     : <></>}
                     { carbs ?
-                    <span>Carb: <span style={{fontWeight:'700'}}>{carbs} g</span></span>
+                    <span>Carb: <span style={{fontWeight:'800'}}>{carbs} g</span></span>
                     : <></>}
                     { fat ?
-                    <span>Fat: <span style={{fontWeight:'700'}}>{fat} g</span></span>
+                    <span>Fat: <span style={{fontWeight:'800'}}>{fat} g</span></span>
                     : <></>}
                     { fiber ?
-                    <span>Fiber: <span style={{fontWeight:'700'}}>{fiber} g</span></span>
+                    <span>Fiber: <span style={{fontWeight:'800'}}>{fiber} g</span></span>
                     : <></>}
                 </div>
             </div>

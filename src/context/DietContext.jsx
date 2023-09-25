@@ -94,6 +94,12 @@ export const DietContextProvider = ({children}) => {
         setSnacks(result)
     }
 
+    const reset = () => {
+        setBreakfast([])
+        setLaunch([])
+        setDinner([])
+        setSnacks([])
+    }
 
     const totalBreakfastCalories = () => {
         return breakfast.reduce((total, item) => total + item.kcal, 0).toFixed(1)
@@ -151,7 +157,7 @@ export const DietContextProvider = ({children}) => {
         return +totalBreakfastCalories() + +totalDinnerCalories() + +totalSnacksCalories() + +totalLaunchCalories()
     }
     const totalProtein = () => {
-        return +totalBreakfastProtein() + +totalDinnerProtein() + +totalSnacksProtein() + +totalLaunchCalories()
+        return +totalBreakfastProtein() + +totalDinnerProtein() + +totalSnacksProtein() + +totalLaunchProtein()
     }
     const totalCarbs = () => {
         return +totalBreakfastCarbs() + +totalDinnerCarbs() + +totalSnacksCarbs() + +totalLaunchCarbs()
@@ -161,7 +167,7 @@ export const DietContextProvider = ({children}) => {
     }
     
     return(
-        <DietContext.Provider value={{addItem, removeItemBreakfast, removeItemLaunch, removeItemDinner, removeItemSnacks, totalCalories, totalProtein, totalCarbs, totalFat, totalBreakfastCalories, totalBreakfastCarbs, totalBreakfastProtein, totalBreakfastFat, totalDinnerCalories, totalDinnerCarbs, totalDinnerProtein, totalDinnerFat, totalLaunchCalories, totalLaunchCarbs, totalLaunchFat, totalLaunchProtein, totalSnacksCalories, totalSnacksCarbs, totalSnacksFat, totalSnacksProtein, diet, breakfast, launch, dinner, snacks}}>
+        <DietContext.Provider value={{addItem, removeItemBreakfast, removeItemLaunch, removeItemDinner, removeItemSnacks, reset, totalCalories, totalProtein, totalCarbs, totalFat, totalBreakfastCalories, totalBreakfastCarbs, totalBreakfastProtein, totalBreakfastFat, totalDinnerCalories, totalDinnerCarbs, totalDinnerProtein, totalDinnerFat, totalLaunchCalories, totalLaunchCarbs, totalLaunchFat, totalLaunchProtein, totalSnacksCalories, totalSnacksCarbs, totalSnacksFat, totalSnacksProtein, diet, breakfast, launch, dinner, snacks}}>
             { children }
         </DietContext.Provider>
     )

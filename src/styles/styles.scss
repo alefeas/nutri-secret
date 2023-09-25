@@ -1,158 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Prompt:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
 body {
-    background: url('https://images.unsplash.com/photo-1464427219274-ab9450eba98b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1946&q=80');
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
     margin: 0 auto;
+    min-height: 100vh;
     text-align: center;
+}
+html {
+    background-color: #f8f9fa;
+    overflow-y: scroll;
 }
 * {
     font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
 }
 ::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: #f8f9fa;
+}
+.MuiBackdrop-root {
+    scrollbar-gutter: auto !important;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:rgb(176, 176, 176); 
+    &:hover {
+        background:rgb(154, 154, 154); 
+    }
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+}
+.header {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    h1 {
+        .nutri {
+            margin-right: 10px;
+            color: green;
+        }
+    }
 }
 .formControl {
     outline: none !important;
     color: #0002 !important;
 }
-.searchContainer {
-    position: relative;
-    .inputSearch {
-        width: calc(1000px - 2px);
-        height: 40px;
-        border: 1px solid lightgray;
-        outline: none;
-        margin-top: 20px;
-    }
-    .buttonSearch {
-        position: absolute;
-        right: -2px;
-        top: 21px;
-        background-color: white;
-        border: none;
-        height: 42px;
-        cursor: pointer;
-        border-left: 1px solid lightgray;
-    }
-}
-.titlesContainer {
-    text-align: left;
-    margin: 10px 0;
-    position: sticky;
-    top: 0;
-    background-color: rgb(0, 0, 0);
-    border: 2px solid white;
-    color: white;
-    padding: 15px 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-weight: 700;
-    .foodTitle {
-        width: 300px;
-    }    
-    .unitTitle {
-        width: 100px;
-    }    
-    .nutrientsTitle {
-        width: 200px;
-    }    
-    .quantityTitle {
-        width: 100px;
-    }    
-}
-.itemList {
-    text-align: left;
-    max-height: 80vh;
-    overflow-y:scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    .item {
-        background-color: rgba(255, 255, 255, 0.8);
-        cursor: pointer;
-        padding: 10px 0px;
-        border: 2px solid lightgray;
+.home {
+    .resetSearchButtonContainer {
+        margin: 5px;
         display: flex;
-        justify-content: space-around;
-        align-items: center;
-        transition: .25s;
-        .foodColumn {
-            width: 300px;
-        }
-        .unitColumn {
-            width: 100px;
-        }
-        .nutrientsColumn {
-            width: 200px;
-        }
-        .quantityColumn {
-            width: 100px;
-        }
-        .column {
+        a, .reset{
+            text-decoration: none;
+            color: #000;
             display: flex;
-            flex-direction: column;
-            gap: 20px;        
-            div {
-                display: flex;
-                flex-direction: column;
+            align-items: center;
+            border: 1px solid black;
+            padding: 2.5px 10px;
+            cursor: pointer;
+            svg {
+                margin-left: 5px;
+                width: 30px;
             }
         }
-        &:hover {
-            border-color: red;
+        .reset {
+            margin-left: 10px;
+        }
+    }
+    .dietDetailsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        padding: 10px;
+        width: 400px;
+        background-color: rgba(211, 211, 211, 0.713);
+        .nutrientsDietContainer {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 320px;
+            gap: 20px;
         }
     }
 }
-.seeMoreButton {
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    border-radius: 15px;
-    margin: 10px auto;
-    padding: 10px;
-    background-color: #bcf0d1;
-    width: 200px;
-}
-.dietDetailsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    padding: 10px;
-    width: 400px;
-    background-color: rgba(211, 211, 211, 0.713);
-}
 .mealTypeList {
-    padding: 10px;
+    font-size: 18px;
+    padding: 10px 10px 10px 10px;
     margin: 10px;
     border: 1px solid white;
-    background-color: grey;
+    background-color: rgb(176, 176, 176);
     display: flex;
     flex-direction: column;
-    position: relative;
-    transition:.5s;
     overflow: hidden;
-    height: 65px;
+    height: 80px;
 }
-#mealTypeListShort {
-    height: 30px;
-    justify-content: center;
-}
+    
 .deleteIcon {
     cursor: pointer;
     width: 40px;
     height: 30px;
 }
-.nutrientsDietContainer {
-    margin-bottom: 10px;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 320px;
-    gap: 20px;
+#mealTypeListShort {
+    height: 30px;
+    justify-content: center;
 }
 .expandContainer {
     margin: 10px auto;
@@ -160,16 +122,156 @@ body {
     display: flex;
     justify-content: space-between;
     width: 320px;
-    text-align: left;
+    text-align: center;
+}
+.number {
+    font-size: 16px;
 }
 .itemListContainer {
     margin: 0 auto;
     width: 1000px;
+    .noResults {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+    }
+    .titlesContainer {
+        text-align: left;
+        margin: 10px 0;
+        position: sticky;
+        top: 0;
+        background-color: rgb(176, 176, 176);
+        color: black;
+        padding: 15px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .foodTitle {
+            width: 300px;
+            font-weight: 800;
+        }    
+        .unitTitle {
+            width: 100px;
+            font-weight: 800;
+        }    
+        .nutrientsTitle {
+            width: 200px;
+            font-weight: 800;
+        }    
+        .quantityTitle {
+            width: 100px;
+            font-weight: 800;
+        }    
+    }
+    .itemList {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+        .item {
+            background-color: rgba(211, 211, 211, 0.713);
+            cursor: pointer;
+            padding: 10px 0px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .foodColumn {
+                width: 300px;
+            }
+            .unitColumn {
+                width: 100px;
+            }
+            .nutrientsColumn {
+                width: 200px;
+            }
+            .quantityColumn {
+                width: 100px;
+            }
+            .column {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;        
+                div {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            &:hover {
+                border-color: red;
+            }
+        }
+    }
+    .goBackSearchContainer {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .searchContainer {
+            position: relative;
+            .inputSearch {
+                width: 850px;
+                height: 40px;
+                border: 1px solid black;
+                outline: none;
+                padding: 0px 5px;
+            }
+            .buttonSearch {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                right: 1px;
+                top: 1px;
+                background-color: white;
+                border: none;
+                height: 40px;
+                cursor: pointer;
+                border-left: 1px solid black;
+                svg {
+                    width: 30px;
+                }
+            }
+        }
+    }
+    .goBackContainer {
+        display: flex;
+        .goBackLink {
+            width: 110px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            font-weight: 800;
+            border: 1px black solid;
+            height: 40px;
+            padding: 0px 10px;
+            svg {
+                width: 18px;
+            }
+        }
+    }
+    .seeMoreButton {
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        border-radius: 15px;
+        margin: 20px auto 10px auto;
+        padding: 10px;
+        background-color: rgb(176, 176, 176);
+        width: 200px;
+    }
+    .seeMoreButtonLoading {
+        opacity: .75;
+    }
 }
 .nutrientsDiet {
-    text-align: left;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    width: 80px;    
 }
 .mealTypeTitle {
     display: flex;
@@ -177,9 +279,16 @@ body {
     margin: 0 auto;
     width: 320px;
     align-items: center;
+    .nutrientsDiet {
+        width: 65px;
+    }
+}
+.itemName {
+    text-align: left;
 }
 .arrowMealTypeExpand {
     height: 40px;
+    width: 80px;
 }
 .itemDiet {
     padding-top: 10px;
@@ -189,78 +298,264 @@ body {
     flex-direction: column;
     gap: 10px;
 }
+.imgTitleContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .titleContainerItemDiet {
     display: flex;
     justify-content: space-between;
+    .nutrientsDiet {
+        width: 65px;
+    }
+    .itemName {
+        width: 240px;
+        .grams {
+            font-size: 14px;
+        }
+    }
 }
 .mealTypeExpandList {
-    transition: .5s;
     height: auto;
 }
 
+.footer {
+    font-size: 14px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
 //LOADER
 
 .loaderContainer {
+    min-height: 60vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    height: 50vh;
     .loader {
-        width: 100px;
-        height: 100px;
-        display: block;
-        margin: auto;
-        position: relative;
-        background: #222;
+        width: 48px;
+        height: 48px;
+        margin-left: 17.5px;
+        margin-right: 17.5px;
         border-radius: 50%;
+        display: inline-block;
+        border-top: 3px solid #000000;
+        border-right: 3px solid transparent;
         box-sizing: border-box;
-        transform-origin: 170px 50px;
-        border: 4px solid #333;
-        box-shadow: 3px 4px #0003 inset, 0 0 6px #0002 inset;
-        animation: panmov 0.4s ease-in-out infinite alternate;
-        &::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) skew(-15deg, 15deg) rotate(-15deg);
-            width: 55px;
-            height: 53px;
-            background: #fff;
-            background-image: 
-            radial-gradient(circle 3px , #fff6 90%, transparent 10%),
-            radial-gradient(circle 12px , #ffc400 90%, transparent 10%),
-            radial-gradient(circle 12px , #ffae00 100%, transparent 0);
-            background-repeat: no-repeat;
-            background-position: -4px -6px , -2px -2px , -1px -1px;
-            box-shadow: -2px -3px #0002 inset, 0 0 4px #0003 inset;
-            border-radius: 47% 36% 50% 50% / 49% 45% 42% 44%;
-            animation: ylmov 0.6s ease-in-out infinite alternate;
-        }
-        &::after {
-            content: '';
-            position: absolute;
-            left: 100%;
-            top: 48px;
-            height: 15px;
-            width: 70px;
-            background: #222222;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 3px 0 3px #eee2 inset;
-            transform: rotate(5deg) translateX(3px);
-        }
+        animation: rotation 1s linear infinite;
     }
 }
 
-@keyframes panmov {
-    0% , 10% { transform: rotate(5deg) }
-    90% , 100% { transform: rotate(-5deg) }
-}
-@keyframes ylmov {
-    to { 
-        border-radius: 50% 36% 50% 50% / 49% 50% 45% 45%;
-        background-position: -2px -4px , 2px 2px , 1px 1px;
+@keyframes rotation {
+    0% {
+    transform: rotate(0deg);
     }
-}  
+    100% {
+    transform: rotate(360deg);
+    }
+} 
 
 //MODAL 
+.modal {
+    display: flex;
+    .horizontalContainer {
+        margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        select, input {
+            margin-top: 5px;
+            outline: 1px solid black;
+            border: none;
+            width: 200px;
+            height: 30px;
+            font-size: 16px;
+            padding: 0 5px 0 5px;
+        }
+        select {
+            cursor: pointer;
+        }
+        input {
+            width: 60px;
+        }
+    }
+    .smallModalContainer {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    .excessSpan {
+        margin-top: 5px;
+        color:red;
+        font-size: 12px;
+    }
+    .buttonContainer {
+        margin-top: 5px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        button {
+            background-color: rgb(101, 154, 101);
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            width: 135px;
+            height: 30px;
+        }
+        .cancelButton {
+            background-color: rgb(216, 102, 102);
+        }
+    }
+}
+
+//RESPONSIVE WEB DESIGN
+
+@media screen and (max-width: 1200px) {
+    .itemListContainer {
+        width: 95vw;
+        .titlesContainer {
+            .foodTitle {
+                width: 30%;
+                text-overflow: ellipsis;
+            }    
+            .unitTitle {
+                width: 15%;
+                text-overflow: ellipsis;
+            }    
+            .nutrientsTitle {
+                width: 25%;
+                text-overflow: ellipsis;
+            }    
+            .quantityTitle {
+                width: 15%;
+                text-overflow: ellipsis;
+            }    
+        }
+        .itemList {
+            .item {
+                .foodColumn {
+                    width: 30%;
+                }
+                .unitColumn {
+                    width: 15%;
+                }
+                .nutrientsColumn {
+                    width: 25%;
+                }
+                .quantityColumn {
+                    width: 15%;
+                }
+            }
+        }
+        .goBackSearchContainer {
+            border-right:1px solid black;
+            width: auto !important;
+            overflow: hidden;
+            .searchContainer {
+                width: 100%;
+                margin-left: 10px;
+                .inputSearch {
+                    width: 100%;
+                }
+            }
+            .goBackContainer {
+                .goBackLink {
+                    justify-content: center;
+                    padding: 0 5px;
+                    font-size: 18px;
+                    svg {
+                        width: 16px;
+                    }    
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .itemListContainer {
+        font-size: 15px;
+        .titlesContainer {
+            .foodTitle {
+                text-overflow: ellipsis;
+                width: 110px;
+            }    
+            .unitTitle {
+                width: 35px;
+                text-overflow: ellipsis;
+            }    
+            .nutrientsTitle {
+                width: 100px;
+                text-overflow: ellipsis;
+            }    
+            .quantityTitle {
+                width: 35px;
+                text-overflow: ellipsis;
+            }    
+        }
+        .itemList {
+            .item {
+                .foodColumn {
+                    width: 110px;
+                }
+                .unitColumn {
+                    width: 35px;
+                }
+                .nutrientsColumn {
+                    width: 100px;
+                }
+                .quantityColumn {
+                    width: 35px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .home {
+        .dietDetailsContainer {
+            width: 300px;
+            .mealTypeList {
+                width: 260px;
+                .mealTypeTitle {
+                    width: 260px;
+                }
+                .nutrientsDiet {
+                    width: 50px;
+                }
+            }
+            .nutrientsDietContainer {
+                display: flex;
+                align-items: flex-start;
+                width: 260px;
+                div {
+                    span {
+                        width: 50px;
+                    }
+                }
+            }
+            .mealTypeExpandList {
+                width: 260px;
+                .nutrientsDiet {
+                    width: auto;
+                }
+            }
+            .titleContainerItemDiet {
+                width: 260px;
+            }
+            .reset, a {
+                svg {
+                    width: 23px;
+                }
+            }
+        }
+    }
+    .itemDiet {
+        width: 260px;
+    }
+    .number {
+        width: 50px;
+    }
+}

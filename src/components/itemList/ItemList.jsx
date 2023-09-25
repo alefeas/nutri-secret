@@ -19,7 +19,7 @@ export const ItemList = ({data, seeMore, loading, loadingMore, nextPage}) => {
             <>
             {
                 nextPage !== '' && !loading ?
-                <button className='seeMoreButton' onClick={seeMore}>
+                <button className={ !loadingMore ? 'seeMoreButton' : 'seeMoreButton seeMoreButtonLoading'} onClick={seeMore}>
                     {
                         !loadingMore ?
                         'See more'
